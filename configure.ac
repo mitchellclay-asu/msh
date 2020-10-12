@@ -11,13 +11,13 @@ AC_CONFIG_HEADERS([config.h])
 AC_PROG_CC
 AC_PROG_INSTALL
 
-# Checks for libraries.
-
-# Checks for header files.
-
-# Checks for typedefs, structures, and compiler characteristics.
-
-# Checks for library functions.
+# Check for readline library
+PKG_CHECK_MODULES([READLINE], [readline],
+  [
+  CFLAGS="$CFLAGS $READLINE_CFLAGS"
+  LDFLAGS="$LDFLAGS $READLINE_LDFLAGS"
+  ],
+)
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
